@@ -1,9 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
-import CardProduct from "../../components/Cards/CardProduct/CardProduct";
-import Loader from "../../components/Loader/Loader";
 import { fetchProducts } from "../../features/product/productSlice";
-import { Container, ContainerCards } from "./productScreenStyled";
 
 const ProductScreen = () => {
 	const dispatch = useDispatch()
@@ -20,25 +17,9 @@ const ProductScreen = () => {
 	return (
 		<div>
 			{loadingListProducts? (
-				<Loader/>
+				<h1>Loading</h1>
 			): (
-				<Container>
-					<ContainerCards>
-						{ products.map((product) => {
-							return(
-								<CardProduct
-									id={product.id}	
-									key={product.id}
-									imgUrl = {product.imgUrl}
-									model={product.model}
-									price={product.price}
-									brand={product.brand}
-								/>
-							)
-						})}
-
-					</ContainerCards>
-				</Container>
+				<h2>cargado</h2>
 			)}
 			
 		</div>

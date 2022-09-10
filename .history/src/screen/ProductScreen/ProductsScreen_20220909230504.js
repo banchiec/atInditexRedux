@@ -27,7 +27,6 @@ const ProductScreen = () => {
 						{ products.map((product) => {
 							return(
 								<CardProduct
-									id={product.id}	
 									key={product.id}
 									imgUrl = {product.imgUrl}
 									model={product.model}

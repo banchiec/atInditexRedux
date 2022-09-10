@@ -19,9 +19,16 @@ export const fetchProducts  = createAsyncThunk('product/fetchProducts', () => {
 })
 
 export const fetchProductDetail = createAsyncThunk('productDetails/fetchProductDetail', (id) => {
+  console.log(id);
   return axios
     .get(`https://front-test-api.herokuapp.com/api/product/${id}`)
-    .then((response) => response.data)
+    .then((response) => 
+    {
+      console.log(response.data);
+      response.data.map((product) => product)
+    }
+
+    )
 })
 
 export const productSlice = createSlice({
@@ -47,13 +54,13 @@ export const productSlice = createSlice({
     builder.addCase(fetchProductDetail.pending, (state) => {
       state.loadingDetailsProduct = false
     })
-    builder.addCase(fetchProductDetail.fulfilled, (state, action) => {
+    builder.addCase(fetchProductDetails.fulfilled, (state, action) => {
       state.loadingDetailsProduct = false 
       state.successDetailsProduct = true
       state.errorDetailsProduct = false
-      state.productDetails = action.payload
+      state.product = action.payload
     })
-    builder.addCase(fetchProductDetail.rejected, (state, action) =>{
+    builder.addCase(fetchProducts.rejected, (state, action) =>{
       state.loadingListProducts= false
       state.successListProducts = false
       state.errorListProducts = true

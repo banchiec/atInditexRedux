@@ -19,9 +19,12 @@ export const fetchProducts  = createAsyncThunk('product/fetchProducts', () => {
 })
 
 export const fetchProductDetail = createAsyncThunk('productDetails/fetchProductDetail', (id) => {
+  console.log(id);
   return axios
     .get(`https://front-test-api.herokuapp.com/api/product/${id}`)
-    .then((response) => response.data)
+    .then((response) => 
+      response.data.map((product) => product)
+    )
 })
 
 export const productSlice = createSlice({

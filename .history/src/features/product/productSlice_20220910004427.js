@@ -5,9 +5,6 @@ const initialState = {
 	loadingListProducts: false,
   successListProducts: false,
   errorListProducts: false,
-	loadingDetailsProduct: false,
-  successDetailsProduct: false,
-  errorDetailsProduct: false,
 	products: [],
   productDetails: {}
 }
@@ -18,10 +15,17 @@ export const fetchProducts  = createAsyncThunk('product/fetchProducts', () => {
 		.then((response) => response.data.map((product) => product))
 })
 
-export const fetchProductDetail = createAsyncThunk('productDetails/fetchProductDetail', (id) => {
+export const fetchProductDetail = createAsyncThunk('product/fetchProductDetail', (id) => {
+  console.log(id);
   return axios
-    .get(`https://front-test-api.herokuapp.com/api/product/${id}`)
-    .then((response) => response.data)
+    .get(`https://front-test-api.herokuapp.com/api/product/details/${id}`)
+    .then((response) => 
+    {
+      console.log(response.data);
+      response.data.map((product) => product)
+    }
+
+    )
 })
 
 export const productSlice = createSlice({
@@ -38,22 +42,6 @@ export const productSlice = createSlice({
       state.products = action.payload
     })
     builder.addCase(fetchProducts.rejected, (state, action) =>{
-      state.loadingListProducts= false
-      state.successListProducts = false
-      state.errorListProducts = true
-      state.products = []
-      state.errorListProducts = action.error.message 
-    })
-    builder.addCase(fetchProductDetail.pending, (state) => {
-      state.loadingDetailsProduct = false
-    })
-    builder.addCase(fetchProductDetail.fulfilled, (state, action) => {
-      state.loadingDetailsProduct = false 
-      state.successDetailsProduct = true
-      state.errorDetailsProduct = false
-      state.productDetails = action.payload
-    })
-    builder.addCase(fetchProductDetail.rejected, (state, action) =>{
       state.loadingListProducts= false
       state.successListProducts = false
       state.errorListProducts = true
