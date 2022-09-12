@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { store } from './App/store';
 import { createMemoryHistory } from "history";
 import ProductScreen from "./screen/ProductScreen/ProductsScreen";
+import ProductDetailsScreen from "./screen/ProductDetailsScreen/ProductDetailsScreen";
 
 const render = component => rtlRender(
 	<Provider store={store}>
@@ -19,7 +20,8 @@ describe('Test de App render', () => {
 		render(<App/>)
 	})
 })
-describe('Render ProductScreen' ,() => {
+
+describe('Checking render ProductScreen in route /' ,() => {
 	test('render card', () => {
 		const history = createMemoryHistory('/')
 		render(
@@ -27,5 +29,16 @@ describe('Render ProductScreen' ,() => {
 				<ProductScreen/>
 			</Router>
 		)
+	})
 })
+
+describe(`Checking render ProductDetailsScreen in route '/product/details/:id'`, () => {
+	test('Render ProductDetailsScreen component', () => {
+		const history = createMemoryHistory('/product/details/:id')
+		render(
+			<Router history={history}>
+				<ProductDetailsScreen />
+			</Router>
+		)
+	})
 })
