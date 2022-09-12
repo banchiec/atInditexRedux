@@ -22,13 +22,3 @@ describe('Checking render ProductScreen in route '/' ' ,() => {
 			</Router>
 		)
 })
-describe(`Checking render ProductDetailsScreen in route '/product/details/:id'`, () => {
-	test('Render ProductDetailsScreen component', () => {
-		const history = createMemoryHistory('/product/details/:id')
-		render(
-			<Router history={history}>
-				<ProductDetailsScreen />
-			</Router>
-		)
-	})
-})
