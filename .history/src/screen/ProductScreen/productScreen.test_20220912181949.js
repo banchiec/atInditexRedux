@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { store } from '../../App/store';
 import { createMemoryHistory } from "history";
 import ProductScreen from './ProductsScreen.js'
+import ProductDetailsScreen from "../ProductDetailsScreen/ProductDetailsScreen";
 import CardProduct from "../../components/Cards/CardProduct/CardProduct";
 
 const render = component => rtlRender(

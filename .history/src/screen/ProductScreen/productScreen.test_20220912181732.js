@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { store } from '../../App/store';
 import { createMemoryHistory } from "history";
 import ProductScreen from './ProductsScreen.js'
-import CardProduct from "../../components/Cards/CardProduct/CardProduct";
+import ProductDetailsScreen from "../ProductDetailsScreen/ProductDetailsScreen";
 
 const render = component => rtlRender(
 	<Provider store={store}>
@@ -24,10 +24,5 @@ describe('Checking render ProductScreen in route '/' ' ,() => {
 })
 
 describe('Checking render ProductDetailsScreen last clicking', () => {
-	test('Render Card component', () => {
-		const cardComponent = render(
-			<Router history={history}>
-				<CardProduct/>
-			</Router>
-	)})
+	test
 })
