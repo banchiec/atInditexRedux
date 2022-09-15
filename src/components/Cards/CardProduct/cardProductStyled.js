@@ -35,6 +35,7 @@ export const Card = styled.div`
 			margin: 0;
 		}
 		p {
+			font-size: 12px;
 			padding: 4px 0;
 			margin: 0px;
 		}
@@ -45,5 +46,10 @@ export const Card = styled.div`
 	@media (min-width:768px){
 		width: auto;
 		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+		article {
+			p {
+				font-size: 14px;
+			}
+		}
 	}
 `
