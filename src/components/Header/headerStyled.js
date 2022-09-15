@@ -7,14 +7,20 @@ export const Content = styled.div`
 	padding:  0 1.4em;
 	height: 8vh;
 	border-bottom: 1px solid gray;
-	@media (min-width: 768px) {
+	.header {
+		display: flex ;
+		flex-direction: row;
 	}
 `
 
 export const Logo = styled.div`
 	display: flex;
+	img{
+		width: 120px;
+	}
 	@media (min-width: 768px){
 		img{
+			width: 150px;
 		}
 	}
 `
