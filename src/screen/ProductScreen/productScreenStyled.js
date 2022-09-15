@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	@media (min-width: 768px) {
@@ -23,6 +23,17 @@ export const ContainerCards =  styled.div`
 	}
 `
 export const Filter = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+	width: 90%;
+	padding: 0 30px;
+	margin-top: 10px;
+  h4{
+    padding: 5px 5px;
+    margin: 0;
+  }
+
   @media (min-width:768px){
 		width: 100%;
     display: flex;
