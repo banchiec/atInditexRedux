@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import {setWithExpiry} from '../../utils/localStorage'
 import axios from 'axios'
 
 const initialState = {
@@ -36,6 +37,7 @@ export const productSlice = createSlice({
       state.successListProducts = true
       state.errorListProducts = false
       state.products = action.payload
+      setWithExpiry('products', JSON.stringify(action.payload),360000)
     })
     builder.addCase(fetchProducts.rejected, (state, action) =>{
       state.loadingListProducts= false
@@ -52,6 +54,7 @@ export const productSlice = createSlice({
       state.successDetailsProduct = true
       state.errorDetailsProduct = false
       state.productDetails = action.payload
+      setWithExpiry('productDetails', JSON.stringify(action.payload), 360000)
     })
     builder.addCase(fetchProductDetail.rejected, (state, action) =>{
       state.loadingListProducts= false
@@ -63,6 +66,5 @@ export const productSlice = createSlice({
   }
 })
 
-// export const { increment, decrement, incrementByAmount } = productSlice.actions
 
 export default productSlice.reducer
