@@ -1,0 +1,3 @@
+export const Button = styled.div`
+	padding: 5px 15px;
+`
